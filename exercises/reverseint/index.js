@@ -7,7 +7,16 @@
 //   reverseInt(500) === 5
 //   reverseInt(-15) === -51
 //   reverseInt(-90) === -9
+function reverseInt(n) {
+  return parseInt(n.toString().split('').reverse().join('')) * Math.sign(n);
+}
 
-function reverseInt(n) {}
+// function reverseInt(n) {
+//   if (n < 0) {
+//     return parseInt(n.toString().split('').reverse().join('')) * -1;
+//   } else {
+//     return parseInt(n.toString().split('').reverse().join(''));
+//   }
+// }
 
 module.exports = reverseInt;
