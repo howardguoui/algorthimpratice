@@ -1,7 +1,6 @@
 // --- Directions
 // Implement bubbleSort, selectionSort, and mergeSort
 
-function bubbleSort(arr) {}
 // function bubbleSort(arr) {
 //   var noSwaps;
 //   for (var i = arr.length; i > 0; i--) {
@@ -47,7 +46,6 @@ function bubbleSort(arr) {}
 //   }
 //   return arr;
 // }
-function selectionSort(arr) {}
 // function sselectionSort(arr) {
 //   for (var i = 0; i < arr.length; i++) {
 //     var lowest = i;
@@ -125,7 +123,6 @@ function mergeSort(arr) {
 //   }
 //   return results;
 // }
-function merge(left, right) {}
 
 // function pivot(arr, start = 0, end = arr.length - 1) {
 //   const swap = (arr, idx1, idx2) => {
@@ -212,4 +209,66 @@ function radixSort(nums) {
 mostDigits([23, 567, 89, 12234324, 90]);
 radixSort([23, 345, 5467, 12, 2345, 9852]);
 
+/// another solution
+function bubbleSort(arr) {
+  // Implement bubblesort
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr.length - i - 1; j++) {
+      if (arr[j] > arr[j + 1]) {
+        const lesser = arr[j + 1];
+        arr[j + 1] = arr[j];
+        arr[j] = lesser;
+      }
+    }
+  }
+
+  // return the sorted array
+  return arr;
+}
+
+function selectionSort(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    let indexOfMin = i;
+
+    for (let j = i + 1; j < arr.length; j++) {
+      if (arr[j] < arr[indexOfMin]) {
+        indexOfMin = j;
+      }
+    }
+
+    if (indexOfMin !== i) {
+      let lesser = arr[indexOfMin];
+      arr[indexOfMin] = arr[i];
+      arr[i] = lesser;
+    }
+  }
+
+  return arr;
+}
+
+function mergeSort(arr) {
+  if (arr.length === 1) {
+    return arr;
+  }
+
+  const center = Math.floor(arr.length / 2);
+  const left = arr.slice(0, center);
+  const right = arr.slice(center);
+
+  return merge(mergeSort(left), mergeSort(right));
+}
+
+function merge(left, right) {
+  const results = [];
+
+  while (left.length && right.length) {
+    if (left[0] < right[0]) {
+      results.push(left.shift());
+    } else {
+      results.push(right.shift());
+    }
+  }
+
+  return [...results, ...left, ...right];
+}
 module.exports = { bubbleSort, selectionSort, mergeSort, merge };
