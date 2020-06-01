@@ -32,20 +32,20 @@
 // }
 
 // // ES2015 Version
-// function bubbleSort(arr) {
-//   const swap = (arr, idx1, idx2) => {
-//     [arr[idx1], arr[idx2]] = [arr[idx2], arr[idx1]];
-//   };
+function bubbleSort(arr) {
+  const swap = (arr, idx1, idx2) => {
+    [arr[idx1], arr[idx2]] = [arr[idx2], arr[idx1]];
+  };
 
-//   for (let i = arr.length; i > 0; i--) {
-//     for (let j = 0; j < i - 1; j++) {
-//       if (arr[j] > arr[j + 1]) {
-//         swap(arr, j, j + 1);
-//       }
-//     }
-//   }
-//   return arr;
-// }
+  for (let i = arr.length; i > 0; i--) {
+    for (let j = 0; j < i - 1; j++) {
+      if (arr[j] > arr[j + 1]) {
+        swap(arr, j, j + 1);
+      }
+    }
+  }
+  return arr;
+}
 // function sselectionSort(arr) {
 //   for (var i = 0; i < arr.length; i++) {
 //     var lowest = i;
@@ -65,34 +65,34 @@
 // }
 
 // // ES2015 VERSION
-// function selectionSort(arr) {
-//   const swap = (arr, idx1, idx2) =>
-//     ([arr[idx1], arr[idx2]] = [arr[idx2], arr[idx1]]);
+function selectionSort(arr) {
+  const swap = (arr, idx1, idx2) =>
+    ([arr[idx1], arr[idx2]] = [arr[idx2], arr[idx1]]);
 
-//   for (let i = 0; i < arr.length; i++) {
-//     let lowest = i;
-//     for (let j = i + 1; j < arr.length; j++) {
-//       if (arr[lowest] > arr[j]) {
-//         lowest = j;
-//       }
-//     }
-//     if (i !== lowest) swap(arr, i, lowest);
-//   }
+  for (let i = 0; i < arr.length; i++) {
+    let lowest = i;
+    for (let j = i + 1; j < arr.length; j++) {
+      if (arr[lowest] > arr[j]) {
+        lowest = j;
+      }
+    }
+    if (i !== lowest) swap(arr, i, lowest);
+  }
 
-//   return arr;
-// }
-// function insertionSort(arr) {
-//   var currentVal;
-//   for (var i = 1; i < arr.length; i++) {
-//     currentVal = arr[i];
-//     for (var j = i - 1; j >= 0 && arr[j] > currentVal; j--) {
-//       arr[j + 1] = arr[j];
-//     }
-//     arr[j + 1] = currentVal;
-//   }
-//   return arr;
-// }
-// insertionSort([2, 1, 9, 76, 4]);
+  return arr;
+}
+function insertionSort(arr) {
+  var currentVal;
+  for (var i = 1; i < arr.length; i++) {
+    currentVal = arr[i];
+    for (var j = i - 1; j >= 0 && arr[j] > currentVal; j--) {
+      arr[j + 1] = arr[j];
+    }
+    arr[j + 1] = currentVal;
+  }
+  return arr;
+}
+insertionSort([2, 1, 9, 76, 4]);
 function mergeSort(arr) {
   if (arr.length <= 1) return arr;
   let mid = Math.floor(arr.length / 2);
@@ -176,7 +176,7 @@ function quickSort(arr, left = 0, right = arr.length - 1) {
   return arr;
 }
 
-// quickSort([100, -3, 2, 4, 6, 9, 1, 2, 5, 3, 23]);
+quickSort([100, -3, 2, 4, 6, 9, 1, 2, 5, 3, 23]);
 
 function getDigit(num, i) {
   return Math.floor(Math.abs(num) / Math.pow(10, i)) % 10;
